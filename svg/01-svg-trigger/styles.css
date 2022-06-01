@@ -1,0 +1,16 @@
+/* svg01 */
+
+.container-thin {
+  max-width: 200px;
+  margin: 5vh auto;
+}
+
+.example + .example {
+  margin-top: 5vh;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  /* border: 1px solid red; */
+}

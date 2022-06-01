@@ -1,0 +1,10 @@
+body {
+  background: #000;
+}
+
+#stars {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+:root {
+  --sample-var: teal;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+#toggleBlur {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 1;
+}

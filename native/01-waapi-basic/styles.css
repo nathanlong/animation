@@ -1,0 +1,10 @@
+#animation-target {
+  background-color: #8ecae6;
+  height: 300px;
+  transform-origin: center;
+  width: 300px;
+}
+
+.animation-controls {
+  margin-top: 3rem;
+}
