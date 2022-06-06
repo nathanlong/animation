@@ -5,7 +5,7 @@ const appear = [
 ];
 
 const appearOptions = {
-	duration: 800,
+	duration: 850,
 	fill: "forwards", // preserves end state for elements after animation
 	easing: "cubic-bezier(0.33, 1, 0.68, 1)", //easeOutCubic
 };
@@ -47,8 +47,8 @@ observerElements.forEach((el) => {
 // - Does not prevent visibility with JS disabled
 // - Elements should fade in smoothly regardless of scroll speed (no
 //   scroll flash)
+// - No classlist manipulation, all contained in this script
 //
 // Wishlist
 //
 // - Stagger elements as they appear? (Avoid batching)
-//

@@ -23,6 +23,7 @@
 	},
 	"homepage": "https://github.com/nathanlong/animation#readme",
 	"devDependencies": {
-		"@11ty/eleventy": "^1.0.1"
+		"@11ty/eleventy": "^1.0.1",
+		"eslint": "^8.17.0"
 	}
 }

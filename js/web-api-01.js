@@ -1,27 +1,59 @@
 // 01 - Basic Web Animation functions
 
-// setup animation
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
 
-let tumbling = [
+// SPIN ANIMATION
+const tumbling = [
 	{ transform: "rotate(0)", backgroundColor: "#8ecae6" },
 	{ backgroundColor: "#219ebc", offset: 0.3 },
 	{ backgroundColor: "#023047", offset: 0.6 },
 	{ transform: "rotate(360deg)", backgroundColor: "#8ecae6" },
 ];
 
-let tumblingTiming = {
+const tumblingTiming = {
 	duration: 3000,
 	iterations: Infinity,
 };
 
 const el = document.getElementById("animation-target");
 
-// binding it will autoplay the animation
-// but we need to access it later
-const animation = el.animate(tumbling, tumblingTiming);
+// GROW ANIMATION
 
-// so pause it right away
+const shrinkGrow = [{ transform: "scale(1)" }, { transform: "scale(3)" }];
+const shrinkGrowOptions = {
+	duration: 1000,
+	iterations: Infinity,
+	composite: "add", // this allows us to independently animate the same property
+};
+
+// INITIALIZE
+
+// binding it will autoplay the animation, so pause it right away
+const animation = el.animate(tumbling, tumblingTiming);
 animation.pause();
+
+const scaleAnimation = el.animate(shrinkGrow, shrinkGrowOptions);
+scaleAnimation.pause();
+
+// HELPER FUNCTIONS
+
+function handleMouseMove(event) {
+	// find % of mouseX then affect playback speed x 10
+	let windowP = event.pageX / windowWidth;
+	let spin = windowP * 10;
+
+	// find % of mouseY then choose the same frame from the animation
+	let windowH = event.pageY / windowHeight;
+	let frame = Math.floor(windowH * shrinkGrowOptions.duration);
+
+	// in this case we're dynamically altering the playback
+	animation.playbackRate = spin;
+	// in this one we're scrubbing the animation frames back and forth
+	scaleAnimation.currentTime = frame;
+}
+
+// CONTROLS
 
 document.getElementById("spin").addEventListener("mousedown", function () {
 	animation.play();
@@ -41,20 +73,12 @@ document.getElementById("reset").addEventListener("mousedown", function () {
 	animation.playbackRate = animation.playbackRate * 0.8;
 });
 
-const windowWidth = window.innerWidth;
-
-// optionally bind mouse X to playback rate
+// bind the mouse position to
 document
 	.getElementById("mouse-bind")
 	.addEventListener("mousedown", function () {
-		// raw binding
+		// raw binding, this fires A LOT, recommend debounceing in
+		// a real-world example
 		document.onmousemove = handleMouseMove;
-		// measure window on load
+		animation.play();
 	});
-
-function handleMouseMove(event) {
-	let eventDoc, doc, body;
-	let windowP = event.pageX / windowWidth;
-	// console.log(windowP);
-	animation.playbackRate = windowP * 10;
-}

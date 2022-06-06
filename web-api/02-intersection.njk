@@ -11,10 +11,17 @@
 
 	<body>
 		<main id="content">
-			<a href="../">&larr; Return</a>
-			<div class="container">
+			<code class="breadcrumbs">
+				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">Web API</a>
+			</code>
+			<div class="container-inner">
 				<h1>02 Intersection</h1>
-				<p>Testing out intersection observer animations using the animation API</p>
+				<code class="breadcrumbs">
+					<a href="https://github.com/nathanlong/animation/blob/main/css/web-api-02.css">CSS Source</a>
+					|
+					<a href="https://github.com/nathanlong/animation/blob/main/js/web-api-02.js">JS Source</a>
+				</code>
+				<p>Testing out <code>intersectionObserver</code> animations using the animation API. Each element below will animate in when scrolled into view.</p>
 				<hr/>
 				<div class="appear-wrapper">
 					<h2>The Picture of Dorian Gray</h2>

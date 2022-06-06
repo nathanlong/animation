@@ -1,12 +1,13 @@
-.container {
+.container-inner {
   max-width: 32rem;
   margin: 0 auto;
+  line-height: 1.375;
+}
+
+.container-inner * + * {
+  margin-bottom: 2rem;
 }
 
 img {
   max-width: 100%;
-}
-
-.load-fade {
-  opacity: 0;
 }

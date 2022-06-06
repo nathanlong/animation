@@ -11,20 +11,31 @@
 
 	<body>
 		<main id="content">
-			<a href="../">&larr; Return</a>
-			<h1>01 Basics</h1>
-			<p>Buttons to control the play/pause of the animation as well as the playback speed.</p>
+			<code class="breadcrumbs">
+				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">Web API</a>
+			</code>
+			<div class="container">
+				<h1>01 Basics</h1>
+				<code class="breadcrumbs">
+					<a href="https://github.com/nathanlong/animation/blob/main/css/web-api-01.css">CSS Source</a>
+					|
+					<a href="https://github.com/nathanlong/animation/blob/main/js/web-api-01.js">JS Source</a>
+				</code>
 
-			<div id="animation-target"></div>
+				<p>Buttons to control the play/pause of the animation as well as the playback speed.</p>
 
-			<div class="animation-controls">
-				<button id="spin">Spin Me Right Round</button>
-				<button id="speed-up">Speed Up</button>
-				<button id="reset">Slow Down</button>
-				<button id="stop">Stop</button>
-			</div>
-			<div class="animation-controls">
-				<button id="mouse-bind">Bind Playback Speed to MouseX</button>
+				<div id="animation-target"></div>
+
+				<div class="animation-controls">
+					<button id="spin">Spin Me Right Round (Play)</button>
+					<button id="speed-up">Speed Up</button>
+					<button id="reset">Slow Down</button>
+					<button id="stop">Stop</button>
+				</div>
+				<div class="animation-controls">
+					<button id="mouse-bind">Bind Speed and Scale to Mouse Position</button>
+					<small>(You'll have to reload after using this...)</small>
+				</div>
 			</div>
 		</main>
 
