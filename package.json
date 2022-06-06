@@ -4,10 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"clean": "./bin/clean.sh",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx @11ty/eleventy",
+		"build": "npx @11ty/eleventy --pathprefix '/animation/'",
 		"dev": "npx @11ty/eleventy --serve",
-		"deploy": "git push origin `git subtree split --prefix _site main`:gh-pages --force"
+		"develop": "npx @11ty/eleventy --serve",
+		"deploy": "./bin/deploy.sh"
 	},
 	"repository": {
 		"type": "git",
