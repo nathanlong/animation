@@ -2,4 +2,25 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
+  line-height: 1.375;
+}
+
+code,
+pre {
+  font-family: "JetBrains Mono", "Inconsolata", "Inconsolata-g", "Fira Code",
+    "Source Sans Code", "Consolas", "Deja Vu Sans Mono", "Hack",
+    "IBM Plex Mono", "MonoLisa", "Monoid", "Droid Sans Mono", "Monaco",
+    monospace;
+}
+
+.container {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.breadcrumbs {
+  font-size: 0.75rem;
+  color: #ddd;
 }
