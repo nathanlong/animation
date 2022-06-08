@@ -7,20 +7,39 @@ body {
 
 code,
 pre {
-  font-family: "JetBrains Mono", "Inconsolata", "Inconsolata-g", "Fira Code",
-    "Source Sans Code", "Consolas", "Deja Vu Sans Mono", "Hack",
-    "IBM Plex Mono", "MonoLisa", "Monoid", "Droid Sans Mono", "Monaco",
+  font-family: "JetBrains Mono", Inconsolata, Inconsolata-g, "Fira Code",
+    "Source Sans Code", Consolas, "Deja Vu Sans Mono", Hack,
+    "IBM Plex Mono", MonoLisa, Monoid, "Droid Sans Mono", Monaco,
     monospace;
 }
 
+hr {
+  border: transparent;
+  border-bottom: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
 .container {
-  max-width: 45rem;
   margin: 0 auto;
+  max-width: 45rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 .breadcrumbs {
-  font-size: 0.75rem;
   color: #ddd;
+  font-size: 0.75rem;
+}
+
+.inset {
+  background-color: #fafafa;
+  padding: 0.25rem 1.5rem 1.5rem;
+}
+
+.text-gray {
+  color: #909095;
+}
+
+.text-center {
+  text-align: center;
 }

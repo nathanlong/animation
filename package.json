@@ -4,12 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"clean": "./bin/clean.sh",
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "npx @11ty/eleventy --pathprefix '/animation/'",
+		"clean": "./bin/clean.sh",
+		"deploy": "./bin/deploy.sh",
 		"dev": "npx @11ty/eleventy --serve",
 		"develop": "npx @11ty/eleventy --serve",
-		"deploy": "./bin/deploy.sh"
+		"fix-css": "stylelint './css/**/*.css' --fix",
+		"fix-js": "eslint './js/**/*.js' --fix",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",
@@ -24,6 +26,10 @@
 	"homepage": "https://github.com/nathanlong/animation#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^1.0.1",
-		"eslint": "^8.17.0"
+		"eslint": "^8.17.0",
+		"stylelint": "^14.8.5",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-standard": "^25.0.0",
+		"stylelint-order": "^5.0.0"
 	}
 }

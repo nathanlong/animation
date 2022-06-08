@@ -1,7 +1,7 @@
 .container-inner {
-  max-width: 32rem;
-  margin: 0 auto;
   line-height: 1.375;
+  margin: 0 auto;
+  max-width: 32rem;
 }
 
 .container-inner * + * {
