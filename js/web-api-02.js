@@ -1,6 +1,14 @@
 // set up animation
+//
+// BUT start at non-zero for opacity fade in, this is to help prevent
+// poor LCP (Largest Contentful Paint) scores in automated testing:
+// https://www.debugbear.com/blog/opacity-animation-poor-lcp
+//
+// When you start with elements at 0 opacity, it will be excluded as an LCP
+// element, but then if it's repainted (like animation) it will result in
+// a high LCP score
 const appear = [
-	{ opacity: 0, transform: "translateY(10px)" },
+	{ opacity: 0.1, transform: "translateY(10px)" },
 	{ opacity: 1, transform: "translateY(0)" },
 ];
 
@@ -24,12 +32,7 @@ const Observer = new IntersectionObserver((entries) => {
 		animation.pause();
 
 		if (entry.isIntersecting) {
-			// animate the elements unless we're at the top of the window
-			if (window.scrollY > 0) {
-				animation.play();
-			} else {
-				animation.cancel(); // remove animation
-			}
+			animation.play();
 
 			// remove the observer when done
 			Observer.unobserve(entry.target);
