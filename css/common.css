@@ -3,6 +3,7 @@ body {
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   line-height: 1.375;
+  margin: 0;
 }
 
 code,
@@ -37,7 +38,11 @@ hr {
 }
 
 .text-gray {
-  color: #909095;
+  color: rgba(0,0,0,.4)
+}
+
+.text-gray-white {
+  color: rgba(255,255,255,.4);
 }
 
 .text-center {
