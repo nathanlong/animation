@@ -27,9 +27,13 @@
 	"devDependencies": {
 		"@11ty/eleventy": "^1.0.1",
 		"eslint": "^8.17.0",
+		"prettier": "2.7.1",
 		"stylelint": "^14.8.5",
 		"stylelint-config-prettier": "^9.0.3",
 		"stylelint-config-standard": "^25.0.0",
 		"stylelint-order": "^5.0.0"
+	},
+	"dependencies": {
+		"gsap": "npm:@gsap/shockingly@^3.10.4"
 	}
 }

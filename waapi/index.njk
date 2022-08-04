@@ -13,14 +13,11 @@
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
 		<div class="container">
-			<h1>Web Animation API</h1>
+			<h1>WAAPI (Web Animation API)</h1>
 			<p>Techniques based around the <a href="https://caniuse.com/web-animation">natively-supported</a> API.</p>
 			<hr>
-			<ul>
-				<li><a href="{{ '/web-api/01-basic/' | url }}">01: Basics</a> - Basic playrate manipulation</li>
-				<li><a href="{{ '/web-api/02-intersection/' | url }}">02: Intersection</a> - JS only fade-in on scroll</li>
-				<li><a href="{{ '/web-api/03-title-scroll/' | url }}">03: Title Scroll</a> - Curtain rise/text color change effect</li>
-			</ul>
+			{% set postslist = collections['waapi'] %}
+			{% include "postlist.njk" %}
 		</div>
 	</body>
 </html>

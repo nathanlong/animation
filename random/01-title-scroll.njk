@@ -1,19 +1,24 @@
+---
+title: Curtain Scroll
+description: Curtain rise/text color change effect
+identifier: random-01
+tags: random
+---
 <!DOCTYPE html>
 <html class="no-js" lang="">
 	<head>
 		<meta charset="utf-8" />
-		<title>03 - Intersection</title>
-		<meta name="description" content="" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		<link rel="stylesheet" href="{{ '/css/web-api-03.css' | url }}">
+		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
+		<link rel="stylesheet" href="{{ cssUrl | url }}">
 	</head>
 
 	<body>
 		<main id="content">
-			<code class="breadcrumbs">
-				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">Web API</a>
-			</code>
+			{% include "breadcrumbs.njk" %}
 
 			<div class="scroll-hero-wrapper">
 				<div class="scroll-hero">
@@ -21,7 +26,7 @@
 						<div class="scroll-hero-front-image"></div>
 						<div class="scroll-hero-content">
 							<div class="container">
-								<h1 class="color-front"><code class="text-gray-white">03:</code> Title Scroll Crop</h1>
+								<h1 class="color-front"><code class="text-gray-white">01:</code> Title Scroll Crop</h1>
 								<div class="text-large color-front">
 									<p>This example uses a container that's 200vh with a sticky hero thats 100vh. Max-height is bound to the different of scroll position vs window height, which causes the 'curtain' to rise. Text is duplicated on two layers.</p>
 								</div>
@@ -31,7 +36,7 @@
 					<div class="scroll-hero-side scroll-hero-back">
 						<div class="scroll-hero-content">
 							<div class="container">
-								<h1 class="color-back"><code class="text-gray">03:</code> Title Scroll Crop</h1>
+								<h1 class="color-back"><code class="text-gray">01:</code> Title Scroll Crop</h1>
 								<div class="text-large">
 									<p>This example uses a container that's 200vh with a sticky hero thats 100vh. Max-height is bound to the different of scroll position vs window height, which causes the 'curtain' to rise. Text is duplicated on two layers.</p>
 								</div>
@@ -42,11 +47,6 @@
 			</div>
 
 			<div class="container-inner">
-				<code class="">
-					<a href="https://github.com/nathanlong/animation/blob/main/css/web-api-03.css">CSS Source</a>
-					|
-					<a href="https://github.com/nathanlong/animation/blob/main/js/web-api-03.js">JS Source</a>
-				</code>
 				<p>And because the sticky element is contained in an element that has double height it stops at this point and normal text flow resumes.
 				</p>
 				<p>Consectetur odio iusto distinctio eligendi ipsum nisi, quibusdam. Quae laborum ipsum nam fuga neque maiores impedit? Laudantium aliquam omnis obcaecati doloremque nesciunt, tenetur sunt impedit Dolore eaque autem delectus dolor</p>
@@ -57,6 +57,6 @@
 			<div style="height: 3000px;"></div>
 		</main>
 
-		<script src="{{ '/js/web-api-03.js' | url }}"></script>
+		<script src="{{ '/js/random-01.js' | url }}"></script>
 	</body>
 </html>

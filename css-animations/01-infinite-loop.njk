@@ -1,19 +1,24 @@
+---
+title: Infinite Scrolling Image Background
+description: Continuously move a tiling image
+identifier: css-01
+tags: css
+---
 <!DOCTYPE html>
 <html class="no-js" lang="">
 	<head>
 		<meta charset="utf-8" />
-		<title>01 - Basics</title>
-		<meta name="description" content="" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		<link rel="stylesheet" href="{{ '/css/css-01.css' | url }}">
+		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
+		<link rel="stylesheet" href="{{ cssUrl | url }}">
 	</head>
 
 	<body>
 		<main id="content">
-			<code class="breadcrumbs">
-				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">CSS Animations</a>
-			</code>
+			{% include "breadcrumbs.njk" %}
 
 			<div class="image-wrapper">
 				<div class="image-ribbon"></div>
@@ -21,12 +26,8 @@
 			</div>
 
 			<div class="container text-center">
-				<h1><code class="text-gray">01:</code> Infinite Scrolling Image Background</h1>
-				<code class="breadcrumbs">
-					<a href="https://github.com/nathanlong/animation/blob/main/css/css-01.css">CSS Source</a>
-					|
-					<a href="https://github.com/nathanlong/animation/blob/main/js/css-01.js">JS Source</a>
-				</code>
+				<h1><code class="text-white">01:</code> Infinite Scrolling Image Background</h1>
+				
 				<div class="button-controls text-center">
 				<button id="speed-up">Speed up animation</button>
 				<button id="reset">Reset Speed</button>
@@ -40,6 +41,7 @@
 			</div>
 		</main>
 
-		<script src="{{ '/js/css-01.js' | url }}"></script>
+		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
+		<script type="module" src="{{ jsUrl | url }}"></script>
 	</body>
 </html>

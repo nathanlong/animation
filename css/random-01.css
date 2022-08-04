@@ -89,16 +89,6 @@
 /* Presentation purposes only, not related to the effect */
 /* ---------------------------------------------------------------------- */
 
-.breadcrumbs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  padding: .5rem;
-  background-color: white;
-  border-bottom-right-radius: 10px;
-}
-
 .container-inner {
   line-height: 1.375;
   margin: 0 auto;

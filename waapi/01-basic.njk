@@ -1,26 +1,26 @@
+---
+title: WAAPI Basics
+description: Basic playrate manipulation
+identifier: waapi-01
+tags: waapi
+---
 <!DOCTYPE html>
 <html class="no-js" lang="">
 	<head>
 		<meta charset="utf-8" />
-		<title>01 - Basics</title>
-		<meta name="description" content="" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		<link rel="stylesheet" href="{{ '/css/web-api-01.css' | url }}">
+		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
+		<link rel="stylesheet" href="{{ cssUrl | url }}">
 	</head>
 
 	<body>
 		<main id="content">
-			<code class="breadcrumbs">
-				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">Web API</a>
-			</code>
+			{% include "breadcrumbs.njk" %}
 			<div class="container">
 				<h1><code class="text-gray">01:</code> Basics</h1>
-				<code class="breadcrumbs">
-					<a href="https://github.com/nathanlong/animation/blob/main/css/web-api-01.css">CSS Source</a>
-					|
-					<a href="https://github.com/nathanlong/animation/blob/main/js/web-api-01.js">JS Source</a>
-				</code>
 
 				<p>Buttons to control the play/pause of the animation as well as the playback speed.</p>
 
@@ -39,6 +39,7 @@
 			</div>
 		</main>
 
-		<script src="{{ '/js/web-api-01.js' | url }}"></script>
+		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
+		<script type="module" src="{{ jsUrl | url }}"></script>
 	</body>
 </html>

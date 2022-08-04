@@ -13,7 +13,7 @@ const appear = [
 ];
 
 const appearOptions = {
-	duration: 850,
+	duration: 1200,
 	fill: "forwards", // preserves end state for elements after animation
 	easing: "cubic-bezier(0.33, 1, 0.68, 1)", //easeOutCubic
 };
