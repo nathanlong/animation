@@ -18,12 +18,7 @@ tags: gsap
 
 	<body>
 		<main>
-			<code class="breadcrumbs">
-				<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}">GSAP</a>
-			</code>
-			<code class="source">
-				<a href="https://github.com/nathanlong/animation/blob/main/css/gsap-01.css">CSS Source</a> | <a href="https://github.com/nathanlong/animation/blob/main/js/gsap-01.js">JS Source</a>
-			</code>
+			{% include "breadcrumbs.njk" %}
 			<button class="toggle-style">Toggle stacking</button>
 
 			<article class="content">

@@ -11,10 +11,13 @@ import { gsap } from './vendor/gsap/index.js'
 // The layering effects are created in CSS
 //
 // Credit:
-// https://tympanus.net/Development/TextRepetitionEffect/
+// - https://tympanus.net/Development/TextRepetitionEffect/
 // Original effect:
-// https://experience.drdabber.com/product/stella
-
+// - https://experience.drdabber.com/product/stella
+//
+// Changes from original:
+// - Added some a11y consideration for duplicate text
+// - Pulled the tyCalc and delayCalc math into a single equation with notes
 
 // in the viget module style... sort of
 // https://www.viget.com/articles/how-does-viget-javascript/
@@ -31,6 +34,7 @@ export class RepeatText {
 	// setup our class fields
 	setVars() {
 		this.totalWords = 9 // total amount of duplicates
+		this.halfWordCount = Math.floor(this.totalWords / 2) // half rounded down
 		this.tyIncrement = 12 // translate-y increment
 		this.delayIncrement = 0.1 // animation speed for spread stagger
 		// empty fields for later population
@@ -42,38 +46,30 @@ export class RepeatText {
 	// set staggered translate-y and delay values per text clone
 	// shove all the text clones back into the original el
 	layout() {
-		const halfWordCount = Math.floor(this.totalWords / 2)
 		let innerHTML = ''
 
 		for (let i = 0; i < this.totalWords; i++) {
 			let ty
 			let delay
+			// hide all but the main clone from screen readers
+			let ariaHidden = 'aria-hidden="true"'
 
-			// TODO: I feel like this could be optimized more...
 			if (i === this.totalWords - 1) {
-				// set the last child as centered
+				// set the last child as the 'main' clone
 				ty = 0
 				delay = 0
-			} else if (i < halfWordCount) {
-				// top half (moves up)
-				ty = halfWordCount * this.tyIncrement - this.tyIncrement * i
-				delay =
-					this.delayIncrement *
-						(halfWordCount - (i - halfWordCount)) -
-					this.delayIncrement
+				ariaHidden = ''
+			} else if (i < this.halfWordCount) {
+				// translates down, needs longer delay
+				ty = this.tyCalc(i)
+				delay = this.delayCalc(i) - this.delayIncrement
 			} else {
-				// bottom half (moves down)
-				ty =
-					-1 *
-					(halfWordCount * this.tyIncrement -
-						(i - halfWordCount) * this.tyIncrement)
-				delay =
-					this.delayIncrement *
-						(halfWordCount - (i - halfWordCount)) -
-					this.delayIncrement
+				// translates up, needs shorter delay
+				ty = -1 * this.tyCalc(i - this.halfWordCount) // reset index from 0
+				delay = this.delayCalc(i)
 			}
 
-			innerHTML += `<span data-delay="${delay}" data-ty="${ty}">${this.el.innerHTML}</span>`
+			innerHTML += `<span data-delay="${delay}" data-ty="${ty}" ${ariaHidden}>${this.el.innerHTML}</span>`
 			// console.log(i, ty, delay)
 		}
 
@@ -83,6 +79,19 @@ export class RepeatText {
 		// stuff all these new clones into an array for gsap to animate
 		this.words = [...this.el.querySelectorAll('span')].slice(0, -1)
 		// console.log(this.words)
+	}
+
+	delayCalc(n) {
+		// this returns a reducing value as the index climbs
+		// the -y values need to start immediately or they don't spread evenly
+		// the -2 accounts for the last child (main clone) + index offset
+		return (this.totalWords - 2 - n) * this.delayIncrement
+	}
+
+	tyCalc(n) {
+		// this returns a reducing translate-y to match the decreasing delay
+		// the loop in layout() resets the index value for the second half
+		return (this.halfWordCount - n) * this.tyIncrement
 	}
 
 	// set pb and mt the amount the words will translate up/down
@@ -120,6 +129,8 @@ export class RepeatText {
 			threshhold: 0,
 		}
 
+		// IntersectionObserver VS GSAP scroll trigger?
+		// which is more performant?
 		this.observer = new IntersectionObserver((entry) => {
 			if (entry[0].intersectionRatio > 0) {
 				if (!this.isLoaded) {
