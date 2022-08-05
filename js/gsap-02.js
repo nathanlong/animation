@@ -19,23 +19,41 @@ gsap.registerPlugin(Flip, ScrollTrigger)
 // ScrollTrigger usually sits on top of a timeline or tween (to, from, etc) but
 // also allows using it as a standalone.
 
-const grid = document.querySelectorAll('.grid-el')
-const target = document.querySelector('.grid-image')
+export class GridFlip {
+	constructor(el) {
+		this.el = el
+		this.setVars()
+		this.setScrollTrigger()
+	}
 
-ScrollTrigger.create({
-	trigger: '.grid-image',
-	start: 'top center', // when the top of the trigger hits the middle of the viewport
-	markers: true,
-	onEnter: (self) => flipper(target),
-})
+	setVars() {
+		this.flipTargets = this.el.querySelectorAll('.grid-el')
+	}
 
-function flipper(el) {
-	console.log('flip!')
-	const state = Flip.getState(grid)
-	el.classList.add('swap')
-	Flip.from(state, {
-		duration: 1.2,
-		ease: 'power1.inOut',
-		scale: true,
-	})
+	setScrollTrigger() {
+		ScrollTrigger.create({
+			trigger: this.el,
+			start: 'center center', // when the top of the trigger hits the middle of the viewport
+			markers: true, // show the trigger markers, helpful for debugging
+			onEnter: (self) => this.createFlip(this.el),
+		})
+	}
+
+	createFlip(el) {
+		// record current state
+		const state = Flip.getState(this.flipTargets)
+		// alter the elements
+		this.el.classList.add('swap')
+		// create Flip to tween from previous state
+		Flip.from(state, {
+			duration: 1.2,
+			ease: 'power1.inOut',
+			scale: true,
+		})
+	}
 }
+
+// grab instances and init
+document.querySelectorAll('[data-module="gridFlip"]').forEach((el) => {
+	new GridFlip(el)
+})
