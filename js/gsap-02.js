@@ -35,21 +35,31 @@ export class GridFlip {
 			trigger: this.el,
 			start: 'center center', // when the top of the trigger hits the middle of the viewport
 			markers: true, // show the trigger markers, helpful for debugging
-			onEnter: (self) => this.createFlip(this.el),
+			// fires when entering from normal scroll
+			onEnter: (self) => this.createFlip(true),
+			// fires when backing up through
+			onLeaveBack: (self) => this.createFlip(false)
 		})
 	}
 
-	createFlip(el) {
+	createFlip(add) {
 		// record current state
 		const state = Flip.getState(this.flipTargets)
-		// alter the elements
-		this.el.classList.add('swap')
+		// alter the object: either add or remove a class, triggering css rules
+		add ? this.el.classList.add('swap') : this.el.classList.remove('swap')
 		// create Flip to tween from previous state
 		Flip.from(state, {
 			duration: 1.2,
 			ease: 'power1.inOut',
-			scale: true,
+			scale: this.setScale(),
 		})
+	}
+
+	// scaling trasitions don't reflow, so they distort images set to fill
+	// make this an opt-in per element with the data variable:
+	// 'data-grid-scale="true"'
+	setScale() {
+		return this.el.dataset.gridScale || false
 	}
 }
 

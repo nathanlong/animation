@@ -69,6 +69,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 /* Grid 1 */
@@ -77,6 +78,8 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   aspect-ratio: 16/7;
+  /* although the grid doesn't visually increase in height, the scaling can cause overflow */
+  overflow: hidden;
 }
 
 .grid-el-img-1 {
@@ -128,6 +131,7 @@
   aspect-ratio: 16/6;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  overflow: hidden;
 }
 
 .image-2a {
@@ -175,12 +179,43 @@
 }
 
 .image-2e {
-  grid-column: 9/9;
+  /* if the width is 0 on compute, flip drops it out on the reverse set */
+  grid-column: 8/9;
   grid-row: 4/7;
+  z-index: -1;
 }
 
 .swap .image-2e {
   grid-column: 7/9;
   grid-row: 3/7;
   background-color: var(--color-a);
+}
+
+/* Grid 3 */
+
+.grid-image-3 {
+  aspect-ratio: 16/6;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+.image-3a {
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+
+.swap .image-3a {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.image-3b {
+  grid-column: 4/6;
+  grid-row: 1/2;
+}
+
+.swap .image-3b {
+  grid-column: 3/6;
+  grid-row: 1/2;
 }
