@@ -36,9 +36,9 @@ export class GridFlip {
 			start: 'center center', // when the top of the trigger hits the middle of the viewport
 			markers: true, // show the trigger markers, helpful for debugging
 			// fires when entering from normal scroll
-			onEnter: (self) => this.createFlip(true),
+			onEnter: () => this.createFlip(true),
 			// fires when backing up through
-			onLeaveBack: (self) => this.createFlip(false)
+			onLeaveBack: () => this.createFlip(false)
 		})
 	}
 

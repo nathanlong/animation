@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html class="" lang="">
 	<head>
 		<meta charset="utf-8" />
-		<title>Thoughts - Animation</title>
+		<title>A11y - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
@@ -13,10 +13,11 @@
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
 		<div class="container">
-			<h1>Thoughts / Research</h1>
-			<ul>
-				<li><a href="{{ '/thoughts/01-types/' | url }}">01: Types of Animation</a> - Classifying different categories and uses of animation.</li>
-			</ul>
+			<h1>Accessibility (A11y)</h1>
+			<p>Techniques based around animation accessibility standards.</p>
+			<hr>
+			{% set postslist = collections['a11y'] %}
+			{% include "postlist.njk" %}
 		</div>
 	</body>
 </html>

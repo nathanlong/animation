@@ -1,0 +1,130 @@
+:root {
+  /* animation status, off by default */
+  --toggle: 0;
+  --play-state: paused;
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  :root {
+    --toggle: 1;
+    /* for feeding into animation-play-state, cannot be a string */
+    --play-state: running;
+  }
+}
+
+
+.css-anim {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: #B5179E;
+  position: relative;
+  animation: floating 10000ms ease-in-out infinite;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state */
+  animation-play-state: var(--play-state);
+}
+
+.css-anim .eye-left, .css-anim .eye-right {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  background-color: #fff;
+  animation: blinking 7000ms infinite reverse;
+}
+
+.css-anim .eye-left {
+  top: 50%;
+  left: 13%;
+}
+
+.css-anim .eye-right {
+  top: 50%;
+  right: 13%;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-50%)}
+  100% { transform: translateY(0)}
+}
+
+@keyframes blinking {
+  0% { transform: scaleY(1)}
+  99% { transform: scaleY(1)}
+  100% { transform: scaleY(0)}
+}
+
+.waapi-anim {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: #560BAD;
+  position: relative;
+}
+
+
+.waapi-anim .eye-left, .waapi-anim .eye-right {
+  position: absolute;
+  color: #fff;
+  font-size: 16px;
+  top: 40%;
+}
+
+.waapi-anim .eye-left {
+  left: 13%;
+}
+
+.waapi-anim .eye-right {
+  right: 13%;
+}
+
+.gsap-anim {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: #4361EE;
+}
+
+.gsap-anim .eye-left, .gsap-anim .eye-right {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.gsap-anim .eye-left {
+  top: 50%;
+  left: 20%;
+}
+
+.gsap-anim .eye-right {
+  top: 50%;
+  right: 20%;
+}
+.toggle-wrapper {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.grid {
+  margin-top: 10vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-third {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mt-rando {
+  margin-top: 10vh;
+}
