@@ -51,6 +51,8 @@ export class userAnimationSettings {
 	}
 	
 	setValues() {
+		// these values help control CSS animations and transitions, see the CSS
+		// source for additional notes
 		let root = document.documentElement;
 		if (this.check() === 0) {
 			root.style.setProperty("--play-state", "paused");
@@ -105,6 +107,10 @@ export class userAnimationSettings {
 
 	// set localStorage animation preference so it persists
 	setPref(val) {
+		// TODO: localStorage is ONE way to keep a user preference, but it may
+		// not be the best way, especially depending on the rest of the
+		// build/stack. What other ways can we preserve/store state more
+		// effectively?
 		localStorage.setItem('animating', val)
 	}
 
@@ -141,6 +147,7 @@ const tumblingTiming = {
 const el = document.querySelector('.waapi-anim')
 
 // run animation if user has animations turned on
+// 1 = animation are ok, 0 = abort, el capitan
 if (animSettings.check() === 1) {
 	el.animate(tumbling, tumblingTiming)
 }
@@ -150,7 +157,10 @@ if (animSettings.check() === 1) {
 
 function gsapCheck() {
 	// a little counter intuitive, we're passing this to the paused prop,
-	// so we want to invert the check
+	// so we want to invert the returned value:
+	// 1 = all systems go, so DON'T pause
+	// 0 = stop fiend! so YES, PAUSE those animation
+	// TODO: feels like this could either become part of the class or be better written???
 	let check = animSettings.check() === 1 ? false : true;
 	return check;
 }
@@ -181,3 +191,13 @@ document.querySelector('.pref-destroy').addEventListener('click', function(){
 
 console.log(animSettings.check(), '<-- 0 is disabled, 1 is enabled')
 
+
+// Notes from UI/Platform 8/16/22:
+// - Avoid flicker by blocking html? Would animation flash? Make sure to avoid jarring animations.
+//     - (use inlined in the <head> to check and set local variable)
+//     - default to no animation? What would impact be?
+// - for localStorage, try check for present or null (unSet) rather than 1 or 0
+// - consider similar to light/dark/'respect my system preference'
+// - better name for the check() method (like userAllowAnimation() true/false)
+//     - force it to return an actual boolean in the check() method
+// - localStorage jsonEncode/deCode is a possibility

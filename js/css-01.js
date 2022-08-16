@@ -15,6 +15,8 @@ let animSpeed = 80;
 let backgroundSelect = 1;
 let root = document.documentElement;
 
+// set a ratio because we're setting the image to full browser width, so the
+// height is going to be dependent on window size and image ratio
 function bgRatio(full, ratio) {
 	root.style.setProperty("--base-height", full / ratio + "px");
 }

@@ -49,9 +49,9 @@ export class RepeatText {
 		let innerHTML = ''
 
 		for (let i = 0; i < this.totalWords; i++) {
-			let ty
-			let delay
-			// hide all but the main clone from screen readers
+			let ty // translate-y value
+			let delay // delay value
+	 		// hide all but the main clone from screen readers
 			let ariaHidden = 'aria-hidden="true"'
 
 			if (i === this.totalWords - 1) {

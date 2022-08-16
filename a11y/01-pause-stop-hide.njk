@@ -26,21 +26,28 @@ tags: a11y
 					<label for="animation-toggle">Play Animations</label>
 				</div>
 				<div class="grid">
-					<div class="grid-third css">
+					<div class="grid-fr css">
 						<div class="css-anim">
 							<div class="eye-left"></div>
 							<div class="eye-right"></div>
 						</div>
 						<span class="anim-label">CSS</span>
 					</div>
-					<div class="grid-third waapi">
+					<div class="grid-fr css">
+						<div class="transition-anim">
+							<div class="eye-left"></div>
+							<div class="eye-right"></div>
+						</div>
+						<span class="anim-label">Transitions (ex. hover)</span>
+					</div>
+					<div class="grid-fr waapi">
 						<div class="waapi-anim">
 							<div class="eye-left">꩜</div>
 							<div class="eye-right">꩜</div>
 						</div>
 						<span class="anim-label">WAAPI</span>
 					</div>
-					<div class="grid-third gsap">
+					<div class="grid-fr gsap">
 						<div class="gsap-anim">
 							<div class="eye-left"></div>
 							<div class="eye-right"></div>
@@ -50,7 +57,7 @@ tags: a11y
 				</div>
 
 				<div class="container mt-rando">
-					<p>This page sets a preference in <code>localStorage</code> based off whether a user has opted out of animations (via system settings like System Preferences / Display / Reduce Motion) but also via a global toggle.</p>
+					<p>This page sets a preference in <code>localStorage</code> based off whether a user has opted out of animations (via system settings like System Preferences / Accessibility / Display / Reduce Motion) but also via a global toggle.</p>
 					<p>The toggle will override the initial settings and persist until either the user changes their system settings or interacts with the global toggle.</p>
 					<p>(Not 100% bulletproof yet, but it's a start)</p>
 					<p><button class="pref-destroy">Destroy local preference</button>  <small>(Useful for a clean reload for testing initial state)</small>

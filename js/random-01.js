@@ -1,4 +1,4 @@
-// 03 - Title Scroll Crop
+// Title Scroll Crop
 //
 // All we're doing here is letting the scroll position subtract the max height
 // of front side element, which works to create that curtain effect.

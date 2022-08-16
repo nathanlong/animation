@@ -1,36 +1,45 @@
+/* CSS Animations and Transitions are turned on and off by the setting of two
+ * CSS variables. No js is required for this to work on page load, so if there
+ * is no toggle control and only CSS animations, this would be all you need.
+ * There are more notes in the JS source on how to work with the toggle to
+ * manage and override the default state by user preference. */
+
 :root {
-  /* animation status, off by default */
+  /* this var controls transitions through combining it with calc() for the duration definition */
   --toggle: 0;
+  /* this var controls animations through setting the animation-play-state property: */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state */
   --play-state: paused;
 }
 
+/* opt-in to motion, sets active states */
 @media (prefers-reduced-motion:no-preference) {
   :root {
     --toggle: 1;
-    /* for feeding into animation-play-state, cannot be a string */
     --play-state: running;
   }
 }
 
+/* CSS Animations */
 
 .css-anim {
-  width: 75px;
-  height: 75px;
-  border-radius: 100%;
-  background-color: #B5179E;
-  position: relative;
   animation: floating 10000ms ease-in-out infinite;
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state */
+  /* here we tie the play state to the variable we defined earlier */
   animation-play-state: var(--play-state);
+  background-color: #F72585;
+  border-radius: 100%;
+  height: 75px;
+  position: relative;
+  width: 75px;
 }
 
 .css-anim .eye-left, .css-anim .eye-right {
+  animation: blinking 7000ms infinite reverse;
+  background-color: #fff;
+  border-radius: 100%;
+  height: 7px;
   position: absolute;
   width: 7px;
-  height: 7px;
-  border-radius: 100%;
-  background-color: #fff;
-  animation: blinking 7000ms infinite reverse;
 }
 
 .css-anim .eye-left {
@@ -55,11 +64,47 @@
   100% { transform: scaleY(0)}
 }
 
+/* CSS Transitions */
+
+.transition-anim {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: #7209B7;
+  position: relative;
+  /* Using calc against the custom variable as a duration will result in either
+   * 0 (no animation) or the actual duration */
+  transition: transform calc(var(--toggle) * 5s);
+}
+
+.transition-anim:hover {
+  transform: matrix(0, 1, 1, 0, 0, 0);
+}
+
+.transition-anim .eye-left, .transition-anim .eye-right {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: #fff;
+}
+
+.transition-anim .eye-left {
+  top: 50%;
+  left: 13%;
+}
+
+.transition-anim .eye-right {
+  top: 50%;
+  right: 13%;
+}
+
+/* WAAPI Animations - see JS source for notes */
+
 .waapi-anim {
   width: 75px;
   height: 75px;
   border-radius: 100%;
-  background-color: #560BAD;
+  background-color: #480CA8;
   position: relative;
 }
 
@@ -78,6 +123,8 @@
 .waapi-anim .eye-right {
   right: 13%;
 }
+
+/* GSAP animation - see JS source for notes */
 
 .gsap-anim {
   width: 75px;
@@ -103,6 +150,9 @@
   top: 50%;
   right: 20%;
 }
+
+/* Minor scaffolding, not related to the demo */
+
 .toggle-wrapper {
   text-align: center;
   margin-top: 10vh;
@@ -111,10 +161,10 @@
 .grid {
   margin-top: 10vh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.grid-third {
+.grid-fr {
   display: flex;
   flex-direction: column;
   align-items: center;
