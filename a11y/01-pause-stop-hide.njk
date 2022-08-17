@@ -17,13 +17,43 @@ tags: a11y
 	</head>
 
 	<body>
+		<script>
+			// intentially blocking while we check initial settings
+			function getInitialMotionMode() {
+				// check if a user preference is set, if so, use it
+				const persistedMotionPreference = window.localStorage.getItem('motion-mode');
+				const hasPersistedPreference = typeof persistedMotionPreference === 'string';
+				if (hasPersistedPreference) {
+					return persistedMotionPreference;
+				}
+
+				// otherwise check for system preferences
+				const mql = window.matchMedia('(prefers-reduced-motion: no-preference)');
+				const hasMediaQueryPreference = typeof mql.matches === 'boolean';
+				if (hasMediaQueryPreference) {
+					return mql.matches ? 'no-preference' : 'reduced'
+				}
+
+				// if nothing is set, return a default
+				return 'no-preference';
+			}
+
+			const motionMode = getInitialMotionMode();
+			
+			// set up css variables we'll be using later
+			const root = document.documentElement;
+			root.style.setProperty('--play-state', motionMode === "reduced" ? "paused" : "running")
+			root.style.setProperty('--transition-toggle', motionMode === "reduced" ? "0" : "1")
+			// stash the initial check that we can access later
+			root.style.setProperty('--initial-motion-mode', motionMode)
+		</script>
 		<main>
 			{% include "breadcrumbs.njk" %}
 
 			<article class="content">
 				<div class="toggle-wrapper">
-					<input type="checkbox" id="animation-toggle" name="animation-toggle" checked data-animation-toggle>
-					<label for="animation-toggle">Play Animations</label>
+					<input type="checkbox" id="toggle-motion" name="toggle-motion" data-animation-toggle>
+					<label for="toggle-motion">Allow Motion</label>
 				</div>
 				<div class="grid">
 					<div class="grid-fr css">
