@@ -6,7 +6,7 @@
 
 :root {
   /* this var controls transitions through combining it with calc() for the duration definition */
-  --toggle: 0;
+  --transition-toggle: 0;
   /* this var controls animations through setting the animation-play-state property: */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state */
   --play-state: paused;
@@ -15,7 +15,7 @@
 /* opt-in to motion, sets active states */
 @media (prefers-reduced-motion:no-preference) {
   :root {
-    --toggle: 1;
+    --transition-toggle: 1;
     --play-state: running;
   }
 }
@@ -74,7 +74,7 @@
   position: relative;
   /* Using calc against the custom variable as a duration will result in either
    * 0 (no animation) or the actual duration */
-  transition: transform calc(var(--toggle) * 5s);
+  transition: transform calc(var(--transition-toggle) * 5s);
 }
 
 .transition-anim:hover {
