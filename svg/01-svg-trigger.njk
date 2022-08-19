@@ -1,0 +1,119 @@
+---
+title: SVG Animation Triggers
+description: SVG Animation basics and user triggers
+identifier: svg-01
+tags: svg
+---
+<!DOCTYPE html>
+<html class="" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
+		<link rel="stylesheet" href="{{ cssUrl | url }}">
+	</head>
+
+	<body>
+		<main>
+			{% include "breadcrumbs.njk" %}
+
+			<article class="content">
+				<div class="container-thin">
+					<div class="example text-center">
+						<svg id="svg-01" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+							<!-- <rect id="svg-rect-01" width="10" height="10" mask="url(#test-mask)"> -->
+							<circle cx="5" cy="5" r="5" fill="gold" id="base" />
+							<circle cx="5" cy="5" r="5.25" fill="white" mask="url(#test-mask)">
+
+							</circle>
+							<!-- </rect> -->
+							<mask id="test-mask">
+							<circle cx="15" cy="5" r="4" fill="white">
+							<!-- this <animate> sets up the animation -->
+							<!-- it either needs to be nested in the element it animates (as it is here) -->
+							<!-- or targeted with the attribute like: xlink:href="#cool_shape" -->
+							<animate
+							id="svg-01-mask-animate" 
+							attributeName="cx" 
+							dur="2s" 
+							from="15"
+							to="8"
+							begin="click"
+							restart="whenNotActive"
+							fill="freeze"/>
+							</circle>
+
+							</mask>
+
+							<!-- this one targets the base circle, but is chained to the mask animation start -->
+							<animate id="svg-01-color-animate"
+							xlink:href="#base"
+							attributeName="fill"
+							attributeType="XML"
+							from="gold"
+							to="silver"
+							dur="2s"
+							begin="svg-01-mask-animate.begin"
+							fill="freeze"/>
+						</svg>
+						<button id="button-svg-01">Play</button>
+						<button id="button-svg-02">Stop</button>
+						<p>Basic animate on SVG rect with a circle mask. <small>(Stop does not quite work as expected)</small></p>
+					</div>
+					<div class="example text-center">
+						<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+							<circle id="ring-01" cx="100" cy="100" fill="transparent" stroke="blue">
+								<animate id="c1"
+								attributeName="r"
+								values="0;33;66;100;"
+								dur="3s"
+								repeatCount="indefinite"/>
+								<animate id="c2"
+								attributeName="stroke-width"
+								values="0;3;3;3;0"
+								dur="3s"
+								begin="c1.begin"
+								repeatCount="indefinite"/>
+							</circle>
+							<circle id="ring-02" cx="100" cy="100" fill="transparent" stroke="blue">
+								<animate id="c1_2"
+								attributeName="r"
+								values="0;33;66;100;"
+								dur="3s"
+								begin="c1.begin+0.3s"
+								repeatCount="indefinite"/>
+								<animate id="c2_2"
+								attributeName="stroke-width"
+								values="0;3;4;2;0"
+								dur="3s"
+								begin="c1_2.begin"
+								repeatCount="indefinite"/>
+							</circle>
+							<circle id="ring-03" cx="100" cy="100" fill="transparent" stroke="blue">
+								<animate id="c1_3"
+								attributeName="r"
+								values="0;33;66;100;"
+								dur="3s"
+								begin="c1.begin+0.45s"
+								repeatCount="indefinite"/>
+								<animate id="c2_2"
+								attributeName="stroke-width"
+								values="0;2;1;1;0"
+								dur="3s"
+								begin="c1_3.begin"
+								repeatCount="indefinite"/>
+							</circle>
+						</svg>
+						<p>Animating stroke-width with chained offset starts</p>
+					</div>
+				</div>
+			</article>
+		</main>
+
+		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
+		<script type="module" src="{{ jsUrl | url }}"></script>
+	</body>
+</html>
