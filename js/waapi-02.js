@@ -9,7 +9,7 @@
 // a high LCP score
 
 const appear = [
-  { opacity: 0, transform: 'translateY(1.5rem)' },
+  { opacity: 0, transform: 'translateY(24px)' },
   // { opacity: 0.1, transform: 'translateY(20px)' },
   { opacity: 1, transform: 'translateY(0)' },
 ]
