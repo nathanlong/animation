@@ -8,6 +8,7 @@
 		"clean": "./bin/clean.sh",
 		"deploy": "./bin/deploy.sh",
 		"dev": "npx @11ty/eleventy --serve",
+		"serve": "npx @11ty/eleventy --serve",
 		"develop": "npx @11ty/eleventy --serve",
 		"fix-css": "stylelint './css/**/*.css' --fix",
 		"fix-js": "eslint './js/**/*.js' --fix",
