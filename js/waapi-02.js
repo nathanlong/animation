@@ -21,9 +21,7 @@ const appearOptions = {
 }
 
 // get first descendants of wrapper, and specially targeted elements
-const observerElements = document.querySelectorAll(
-  '.appear-wrapper > *, .appear'
-)
+const observerElements = document.querySelectorAll('.appear')
 
 // begin as soon as the element becomes visible at all in the document
 const observerOptions = { root: null, rootMargin: '0px 0px', threshold: 0 }
@@ -34,7 +32,9 @@ const Observer = new IntersectionObserver((entries) => {
     // set up but pause animation, freezing elements in faded out state
     let animation = entry.target.animate(appear, {
       ...appearOptions,
-      delay: entry.target.dataset.appearDelay ? parseInt(entry.target.dataset.appearDelay) : 0,
+      delay: entry.target.dataset.appearDelay
+        ? parseInt(entry.target.dataset.appearDelay)
+        : 0,
     })
     animation.pause()
 
