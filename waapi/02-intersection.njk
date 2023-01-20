@@ -19,12 +19,12 @@ tags: waapi
 	<body>
 		<main id="content">
 			{% include "breadcrumbs.njk" %}
-			<div class="content appear-wrapper mb-10vh">
+			<div class="content mb-10vh" data-module="appear">
 				<h1><code class="text-gray">02:</code> Intersection</h1>
 				<p>Testing out <code>intersectionObserver</code> animations using the animation API. Each element below will animate in when scrolled into view.</p>
 				<hr/>
-        <h2 class="appear">The Picture of Dorian Gray</h2>
-        <img class="feature appear" src="https://images.unsplash.com/photo-1633477189729-9290b3261d0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9yaWFuJTIwZ3JheXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Ornate novel cover">
+        <h2 class="appear" data-appear-opacity="0.1">The Picture of Dorian Gray</h2>
+        <img class="feature appear" data-appear-opacity="0.1" src="https://images.unsplash.com/photo-1633477189729-9290b3261d0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9yaWFuJTIwZ3JheXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Ornate novel cover">
 
         <div class="text-group appear">
           <p>After some time Dorian Gray looked up. "You have explained me to myself, Harry," he murmured with something of a sigh of relief. "I felt all that you have said, but somehow I was afraid of it, and I could not express it to myself. How well you know me! But we will not talk again of what has happened. It has been a marvellous experience. That is all. I wonder if life has still in store for me anything as marvellous."</p>
@@ -152,7 +152,7 @@ tags: waapi
 
         <blockquote class="appear">
           <p class="appear" data-appear-delay="200">"Witness: He mumbled a few words, but I could only catch some allusion to a rat.</p>
-        <p class="appear" data-appear-delay="400">"The Coroner: What did you understand by that?</p>
+        <p class="appear" data-appear-delay="400" data-appear-offset="48">"The Coroner: What did you understand by that?</p>
           </blockquote>
 
 
