@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
+{%- set cssUrl = ['/src/css/', tags[0]|lower, '/', identifier, '.css'] | join %}
+<link rel="stylesheet" href="{{ cssUrl | url }}">

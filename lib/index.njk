@@ -2,21 +2,21 @@
 <html class="no-js" lang="">
 	<head>
 		<meta charset="utf-8" />
-		<title>Random Effects - Animation</title>
+		<title>Various Libraries - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
-			<h1>Random Effects</h1>
-			<p>Effects that don't fall squarely into one category.</p>
+		<div class="container flow m-content">
+			<h1>Various Libraries</h1>
+			<p class="flow-0">Smattering of different libraries to enable animation and effects</p>
 			<hr>
-			{% set postslist = collections['Random'] %}
+			{% set postslist = collections['lib'] %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

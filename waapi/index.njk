@@ -5,18 +5,18 @@
 		<title>Web API - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
-			<h1>WAAPI (Web Animation API)</h1>
-			<p>Techniques based around the <a href="https://caniuse.com/web-animation">natively-supported</a> API.</p>
+		<div class="container flow m-content">
+			<h1>Web Animation API (WAAPI)</h1>
+			<p class="flow-0">Techniques based around the <a href="https://caniuse.com/web-animation">natively-supported</a> API.</p>
 			<hr>
-			{% set postslist = collections['WAAPI'] %}
+			{% set postslist = collections['waapi'] %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

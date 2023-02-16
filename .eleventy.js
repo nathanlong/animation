@@ -2,9 +2,7 @@ const fs = require("fs");
 
 module.exports = function (eleventyConfig) {
 	// Copy the `img` and `css` folders to the output
-	eleventyConfig.addPassthroughCopy("img");
-	eleventyConfig.addPassthroughCopy("css");
-	eleventyConfig.addPassthroughCopy("js");
+	eleventyConfig.addPassthroughCopy("src");
 
 	// Override Browsersync defaults (used only with --serve)
 	eleventyConfig.setBrowserSyncConfig({

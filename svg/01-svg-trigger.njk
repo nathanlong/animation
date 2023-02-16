@@ -1,7 +1,8 @@
 ---
 title: SVG Animation Triggers
 description: SVG Animation basics and user triggers
-identifier: svg-01
+number: 01
+identifier: 01-svg-trigger
 tags: svg
 ---
 <!DOCTYPE html>
@@ -11,9 +12,7 @@ tags: svg
 		<title>{{title}}</title>
 		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
-		<link rel="stylesheet" href="{{ cssUrl | url }}">
+    {% include "shared-css.njk" %}
 	</head>
 
 	<body>
@@ -129,7 +128,6 @@ tags: svg
 			</article>
 		</main>
 
-		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
-		<script type="module" src="{{ jsUrl | url }}"></script>
+    {% include "shared-js.njk" %}
 	</body>
 </html>

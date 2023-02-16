@@ -1,8 +1,9 @@
 ---
 title: Grid Flip
 description: Image grid that repositions and transform on scroll
-identifier: gsap-02
-tags: GSAP
+number: 02
+identifier: 02-grid-flip
+tags: gsap
 ---
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -11,9 +12,7 @@ tags: GSAP
 		<title>{{title}}</title>
 		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
-		<link rel="stylesheet" href="{{ cssUrl | url }}">
+    {% include "shared-css.njk" %}
 	</head>
 
 	<body>
@@ -21,7 +20,7 @@ tags: GSAP
 			{% include "breadcrumbs.njk" %}
 
 			<article class="content">
-				<div class="container-small">
+				<div class="container-small flow">
 					<p><strong>View the JS source for notes.</strong> Lorem amet placeat quo neque rerum. Dolorum totam distinctio distinctio ad voluptates Itaque impedit labore voluptatem provident optio. Distinctio exercitationem est sunt molestias enim? Quia eos libero perferendis delectus quidem</p>
 					<p>Adipisicing quidem quas eius ipsa ipsa, ab odit? Quasi libero aspernatur sit deserunt corporis veniam! Qui ut dolorem harum iste porro eveniet Nobis eum commodi sapiente cumque mollitia, perspiciatis. Sapiente?</p>
 					<p>Elit odio vel velit recusandae harum? Rerum quasi nostrum animi ipsum quasi. Voluptate amet perspiciatis labore laboriosam inventore. Nihil ipsum labore vel rem expedita odit Provident molestiae eaque officiis cum consectetur ex nisi quidem autem dolorum, illum, possimus. Minus ducimus labore ut minima voluptates voluptates! Illum molestiae nihil cumque labore iste? Accusantium debitis laboriosam doloremque atque a Deleniti saepe recusandae.</p>
@@ -48,7 +47,7 @@ tags: GSAP
 
 				</div>
 
-				<div class="container-small">
+				<div class="container-small flow">
 					<p>Lorem amet placeat quo neque rerum. Dolorum totam distinctio distinctio ad voluptates Itaque impedit labore voluptatem provident optio. Distinctio exercitationem est sunt molestias enim? Quia eos libero perferendis delectus quidem</p>
 					<p>Adipisicing quidem quas eius ipsa ipsa, ab odit? Quasi libero aspernatur sit deserunt corporis veniam! Qui ut dolorem harum iste porro eveniet Nobis eum commodi sapiente cumque mollitia, perspiciatis. Sapiente?</p>
 					<p>Elit odio vel velit recusandae harum? Rerum quasi nostrum animi ipsum quasi. Voluptate amet perspiciatis labore laboriosam inventore. Nihil ipsum labore vel rem expedita odit Provident molestiae eaque officiis cum consectetur ex nisi quidem autem dolorum, illum, possimus. Minus ducimus labore ut minima voluptates voluptates! Illum molestiae nihil cumque labore iste? Accusantium debitis laboriosam doloremque atque a Deleniti saepe recusandae.
@@ -67,7 +66,7 @@ tags: GSAP
 
 				</div>
 
-				<div class="container-small">
+				<div class="container-small flow">
 					<p>Elit quisquam dicta fugit ducimus sed rem voluptates! Ratione similique consequatur vero optio consequatur. Quidem repellendus illo culpa libero facilis? Similique iste soluta quisquam rerum esse Eaque minus quae amet</p>
 
 					<p>Adipisicing ea fugiat architecto suscipit ratione. Laborum at quos fugiat sequi explicabo sequi aliquid? Velit molestias eum sapiente laudantium amet! Culpa illum praesentium in rem ea natus. Quisquam accusamus libero</p>
@@ -90,7 +89,7 @@ tags: GSAP
 					</div>
 				</div>
 
-				<div class="container-small">
+				<div class="container-small flow">
 					<p>Lorem officiis omnis cumque veritatis quam eveniet Molestias blanditiis ab quisquam quam tempora Deleniti dignissimos quaerat deserunt iste ipsam? Ea minus quisquam architecto voluptatem eligendi. Commodi itaque consequatur voluptatum placeat!</p>
 					<p>Consectetur quasi consequatur excepturi aut sit. Debitis expedita laudantium officia ipsum dolores Unde rem repellendus harum dignissimos obcaecati? Accusantium id quae aliquid quae odio vero illum. Quas repellat recusandae facere</p>
 					<p>Consectetur molestiae a cum numquam perspiciatis deserunt Dignissimos eos sapiente minus commodi fuga sint Perferendis ipsa ipsum vero itaque laboriosam! Soluta quam cumque mollitia necessitatibus modi nobis. Dolorum omnis ipsa?</p>
@@ -102,7 +101,6 @@ tags: GSAP
 			</article>
 		</main>
 
-		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
-		<script type="module" src="{{ jsUrl | url }}"></script>
+    {% include "shared-js.njk" %}
 	</body>
 </html>

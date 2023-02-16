@@ -1,6 +1,6 @@
-import { gsap } from './vendor/gsap-3.10.4/index.js'
-import { Flip } from './vendor/gsap-3.10.4/Flip.js'
-import { ScrollTrigger } from './vendor/gsap-3.10.4/ScrollTrigger.js'
+import { gsap } from '../vendor/gsap-3.10.4/index.js'
+import { Flip } from '../vendor/gsap-3.10.4/Flip.js'
+import { ScrollTrigger } from '../vendor/gsap-3.10.4/ScrollTrigger.js'
 gsap.registerPlugin(Flip, ScrollTrigger)
 
 // GRID Flip

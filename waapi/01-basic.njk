@@ -1,8 +1,9 @@
 ---
 title: WAAPI Basics
 description: Basic playrate manipulation
-identifier: waapi-01
-tags: WAAPI
+number: 01
+identifier: 01-basic
+tags: waapi
 ---
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -11,15 +12,13 @@ tags: WAAPI
 		<title>{{title}}</title>
 		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
-		<link rel="stylesheet" href="{{ cssUrl | url }}">
+    {% include "shared-css.njk" %}
 	</head>
 
 	<body>
 		<main id="content">
 			{% include "breadcrumbs.njk" %}
-			<div class="container">
+			<div class="container m-content flow">
 				<h1><code class="text-gray">01:</code> Basics</h1>
 
 				<p>Buttons to control the play/pause of the animation as well as the playback speed.</p>
@@ -39,7 +38,6 @@ tags: WAAPI
 			</div>
 		</main>
 
-		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
-		<script type="module" src="{{ jsUrl | url }}"></script>
+    {% include "shared-js.njk" %}
 	</body>
 </html>

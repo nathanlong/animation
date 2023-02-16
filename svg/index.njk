@@ -5,16 +5,16 @@
 		<title>SVG - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
+		<div class="container flow m-content">
 			<h1>SVG</h1>
-			<p>Techniques based around Scalable Vector Graphics.</p>
+			<p class="flow-0">Techniques based around Scalable Vector Graphics.</p>
 			<hr>
 			{% set postslist = collections['svg'] %}
 			{% include "postlist.njk" %}

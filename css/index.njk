@@ -5,18 +5,18 @@
 		<title>CSS Animations - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
+		<div class="container flow m-content">
 			<h1>CSS Animations</h1>
-			<p>Techniques based around CSS animations</p>
+			<p class="flow-0">Techniques based around CSS animations</p>
 			<hr>
-			{% set postslist = collections['CSS'] %}
+			{% set postslist = collections['css'] %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

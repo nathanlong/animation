@@ -1,0 +1,167 @@
+:root {
+  --sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --mono: 'JetBrains Mono', Inconsolata, Inconsolata-g, 'Fira Code',
+    'Source Sans Code', Consolas, 'Deja Vu Sans Mono', Hack, 'IBM Plex Mono',
+    MonoLisa, Monoid, 'Droid Sans Mono', Monaco, monospace;
+  --content-margin: 5vh;
+  --gap: 0.75em;
+}
+
+/* Nuke ALL the spacing */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: var(--sans-serif);
+  font-size: clamp(1rem, 0.75vw + 0.7rem, 1.375rem);
+  font-weight: 300;
+  line-height: 1.375;
+  margin: 0;
+}
+
+/* basic spacing + flow setup */
+.container {
+  margin: 0 auto;
+  max-width: 45rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.flow-0 {
+  --flow-space: 0em;
+}
+
+.flow-1 {
+  --flow-space: 1em;
+}
+
+.flow-2 {
+  --flow-space: 2em;
+}
+
+/* basic defaults */
+code,
+pre {
+  font-family: var(--mono);
+  font-weight: 400;
+}
+
+hr {
+  --flow-space: 2em;
+  border: transparent;
+  border-bottom: 1px solid #ddd;
+  margin-block: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.125;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+button {
+  padding: 0.25em 0.5em;
+}
+
+/* special components */
+.breadcrumbs,
+.source {
+  background-color: white;
+  color: #ddd;
+  font-size: 0.75rem;
+  left: 0;
+  padding: 0.5rem;
+  position: fixed;
+  z-index: 3;
+}
+
+.breadcrumbs {
+  border-bottom-right-radius: 10px;
+  top: 0;
+}
+
+.source {
+  border-top-right-radius: 10px;
+  bottom: 0;
+}
+
+.header-image {
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.inset {
+  background-color: #fafafa;
+  padding: 0.25rem 1.5rem 1.5rem;
+}
+
+.text-small {
+  font-size: 0.75em;
+}
+
+.text-gray {
+  color: rgba(0, 0, 0, 40%);
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-gray-white {
+  color: rgba(255 255 255 40%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.postlist {
+  padding: 0;
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap {
+  gap: var(--gap);
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.m-content {
+  margin-block: var(--content-margin);
+}

@@ -1,8 +1,9 @@
 ---
 title: Matter.js Basics
 description: Physics engine
-identifier: lib-01
-tags: Library
+number: 01
+identifier: 01-matterjs-basics
+tags: lib
 ---
 <!DOCTYPE html>
 <html class="" lang="en">
@@ -11,9 +12,7 @@ tags: Library
 		<title>{{title}}</title>
 		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
-		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
-		<link rel="stylesheet" href="{{ cssUrl | url }}">
+    {% include "shared-css.njk" %}
 	</head>
 
 	<body>
@@ -22,8 +21,7 @@ tags: Library
       <div class="basics" data-module="basics"></div>
 		</main>
 
-    <script src="{{ '/js/vendor/matter-0.18.0.min.js' | url }}"></script>
-		{%- set jsUrl %}/js/{{ identifier }}.js{% endset -%}
-		<script type="module" src="{{ jsUrl | url }}"></script>
+    <script src="{{ '/src/js/vendor/matter-0.18.0.min.js' | url }}"></script>
+    {% include "shared-js.njk" %}
 	</body>
 </html>

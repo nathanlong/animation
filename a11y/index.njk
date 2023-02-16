@@ -5,16 +5,16 @@
 		<title>A11y - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
-			<h1>Accessibility (A11y)</h1>
-			<p>Techniques based around animation accessibility standards.</p>
+		<div class="container flow m-content">
+			<h1>Accessibility (a11y)</h1>
+			<p class="flow-0">Techniques based around animation accessibility standards.</p>
 			<hr>
 			{% set postslist = collections['a11y'] %}
 			{% include "postlist.njk" %}

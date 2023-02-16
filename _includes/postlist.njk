@@ -1,11 +1,13 @@
-<ul reversed class="postlist">
+<ul class="postlist flow">
 	{% for post in postslist %}
-	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-		{% if post.data.identifier %}<code class="text-small text-gray text-uppercase">{{post.data.identifier}} -</code>{% endif %}
-		<a href="{{ post.url | url }}" class="postlist-link">
-			{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
-		</a>
-		{% if post.data.description %}- {{ post.data.description }}{% endif %}
+	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %} flex items-baseline gap">
+    {% if post.data.number %}<code class="text-small text-gray text-uppercase shrink-0">{{post.data.tags[0]}}-{{post.data.number}}</code>{% endif %}
+    <span>
+      <a href="{{ post.url | url }}" class="postlist-link">
+        {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+      </a>
+      {% if post.data.description %} - {{ post.data.description }}{% endif %}
+    </span>
 	</li>
 	{% endfor %}
 </ul>

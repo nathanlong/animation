@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html class="" lang="en-us">
 	<head>
 		<meta charset="utf-8" />
-		<title>Various Libraries - Animation</title>
+		<title>Mixed Techniques - Animation</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
+		<link rel="stylesheet" href="{{ '/src/css/common.css' | url }}">
 	</head>
 
 	<body>
 		<code class="breadcrumbs">
 			<a href="{{ '/' | url }}">&larr; Animation</a>
 		</code>
-		<div class="container">
-			<h1>Various Libraries</h1>
-			<p>Smattering of different libraries to enable animation and effects</p>
+		<div class="container flow m-content">
+			<h1>Mixed Techniques</h1>
+			<p class="flow-0">Effects that don't fall squarely into one category.</p>
 			<hr>
-			{% set postslist = collections['Library'] %}
+			{% set postslist = collections['mixed'] %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

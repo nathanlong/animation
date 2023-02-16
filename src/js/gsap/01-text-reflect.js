@@ -1,4 +1,4 @@
-import { gsap } from './vendor/gsap-3.10.4/index.js'
+import { gsap } from '../vendor/gsap-3.10.4/index.js'
 
 // REPEATTEXT EFFECT
 //

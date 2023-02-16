@@ -1,8 +1,9 @@
 ---
 title: Animated Number Counter on Scroll w/Vanilla Javascript
 description: Uses intersectionObserver and some javascript to count numbers up from 0 when they enter the frame.
-identifier: random-02
-tags: Random
+number: 02
+identifier: 02-countup-numbers
+tags: mixed
 ---
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -11,12 +12,10 @@ tags: Random
 		<title>{{title}}</title>
 		<meta name="description" content="{{description}}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ '/css/common.css' | url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-		{%- set cssUrl %}/css/{{ identifier }}.css{% endset -%}
-		<link rel="stylesheet" href="{{ cssUrl | url }}">
+    {% include "shared-css.njk" %}
 	</head>
 
 	<body>
@@ -134,6 +133,6 @@ tags: Random
       </article>
     </main>
 
-		<script src="{{ '/js/random-02.js' | url }}" type="module"></script>
+    {% include "shared-js.njk" %}
 	</body>
 </html>
