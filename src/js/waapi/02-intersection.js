@@ -11,7 +11,7 @@
 //
 // - data-appear-delay = time in milliseconds to delay the animation (enables staggered entry)
 // - data-appear-offset = amount in pixels to slide in
-// - data-appear-opacity = value between 0 and 1 to start opacity animation. 
+// - data-appear-opacity = value between 0 and 1 to start opacity animation.
 //   A non-zero value (recommended 0.1) will improve LCP scores for above-the-fold elements.
 // - data-appear-duration = length of animation in milliseconds
 //
@@ -24,7 +24,6 @@
 //
 // - Decendant animations triggered when parent starts?
 
-
 export default class Appear {
   constructor(el) {
     this.el = el
@@ -35,7 +34,10 @@ export default class Appear {
   // build animation keyframes, default values if undefined arguments
   appearAnim(appearOpacity = 0, appearOffset = 24) {
     return [
-      { opacity: parseInt(appearOpacity), transform: `translateY(${parseInt(appearOffset)}px)`, },
+      {
+        opacity: parseInt(appearOpacity),
+        transform: `translateY(${parseInt(appearOffset)}px)`,
+      },
       { opacity: 1, transform: 'translateY(0)' },
     ]
   }
@@ -46,7 +48,7 @@ export default class Appear {
       duration: parseInt(appearDuration),
       fill: 'both', // required to persist both start and end states
       easing: 'cubic-bezier(0.33, 1, 0.68, 1)', //easeOutCubic
-      delay: parseInt(appearDelay)
+      delay: parseInt(appearDelay),
     }
   }
 
@@ -96,7 +98,6 @@ export default class Appear {
   }
 }
 
-
 // Simplifed version of Viget dynamic modules for demo purposes only
 // DON'T REUSE THIS PATTERN, use the real deal, with HMR and all that...
 // https://www.viget.com/articles/how-does-viget-javascript/
@@ -104,7 +105,6 @@ const dataModules = [...document.querySelectorAll('[data-module="appear"]')]
 
 dataModules.forEach((element) => {
   element.dataset.module.split(' ').forEach(function () {
-      new Appear(element)
+    new Appear(element)
   })
 })
-

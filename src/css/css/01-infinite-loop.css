@@ -28,7 +28,7 @@
 .image-ribbon {
   animation: slide var(--animation-duration) linear infinite;
   backface-visibility: hidden;
-  background-image: url("https://user-images.githubusercontent.com/623568/172632914-7726f517-ea2d-4a82-a4dd-26b541e125d9.jpg");
+  background-image: url('https://user-images.githubusercontent.com/623568/172632914-7726f517-ea2d-4a82-a4dd-26b541e125d9.jpg');
   background-repeat: repeat-y;
   background-size: contain;
   height: calc(var(--base-height) * 3);

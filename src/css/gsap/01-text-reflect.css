@@ -1,9 +1,9 @@
 :root {
- --color-text: #fff;
- --color-bg: #111111;
- --font-factor: 0.059; 
- --font-line: 0.745;
- --font-size: 25vw;
+  --color-text: #fff;
+  --color-bg: #111111;
+  --font-factor: 0.059;
+  --font-line: 0.745;
+  --font-size: 25vw;
 }
 
 body {
@@ -20,11 +20,11 @@ body {
 .repeat-title {
   margin: 0;
   display: grid;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .font-size-lg {
@@ -39,18 +39,18 @@ body {
 }
 
 .text-rep span {
-	color: #fff;
+  color: #fff;
   /* this grid-area stacks the spans on top of each other */
-	grid-area: 1 / 1 / 2 / 2;
-	background: var(--color-bg);
+  grid-area: 1 / 1 / 2 / 2;
+  background: var(--color-bg);
   line-height: var(--font-line);
-	padding-bottom: calc(var(--font-factor)* var(--font-size));
-	will-change: transform;
+  padding-bottom: calc(var(--font-factor) * var(--font-size));
+  will-change: transform;
 }
 
 /* the :last-child is positioned in the center as the main text element */
 .text-rep span:not(:last-child) {
-	color: var(--color-text);
+  color: var(--color-text);
 }
 
 .content {
@@ -68,12 +68,12 @@ body {
 /* Show Stack */
 
 .stack .text-rep span {
-  color: rgba(255,0,0,0.8);
+  color: rgba(255, 0, 0, 0.8);
   background: transparent;
 }
 
 .stack .text-rep span:not(:last-child) {
-  color: rgba(255, 255, 255, 0.2)
+  color: rgba(255, 255, 255, 0.2);
 }
 
 /* Presentational

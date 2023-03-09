@@ -52,10 +52,26 @@ export class Basics {
     Composite.add(world, [
       stack,
       // walls
-      Bodies.rectangle(this.percentX(50), 0, this.percentX(100), 10, { isStatic: true }),
-      Bodies.rectangle(this.percentX(50), this.percentY(100), this.percentX(100), 10, { isStatic: true }),
-      Bodies.rectangle(this.percentX(100), this.percentY(50), 10, this.percentY(100), { isStatic: true }),
-      Bodies.rectangle(0, this.percentY(50), 10, this.percentY(100), { isStatic: true }),
+      Bodies.rectangle(this.percentX(50), 0, this.percentX(100), 10, {
+        isStatic: true,
+      }),
+      Bodies.rectangle(
+        this.percentX(50),
+        this.percentY(100),
+        this.percentX(100),
+        10,
+        { isStatic: true }
+      ),
+      Bodies.rectangle(
+        this.percentX(100),
+        this.percentY(50),
+        10,
+        this.percentY(100),
+        { isStatic: true }
+      ),
+      Bodies.rectangle(0, this.percentY(50), 10, this.percentY(100), {
+        isStatic: true,
+      }),
     ])
 
     var ball = Bodies.circle(this.percentY(15), this.percentY(50), 50, {

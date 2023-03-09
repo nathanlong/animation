@@ -16,7 +16,7 @@
 			<h1>Greensock (GSAP)</h1>
 			<p class="flow-0">Techniques based around the <a href="https://greensock.com/">Greensock</a> animation library.</p>
 			<hr>
-			{% set postslist = collections['gsap'] %}
+			{% set postslist = collections['gsap'] | sort() %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

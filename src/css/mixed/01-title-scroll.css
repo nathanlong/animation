@@ -13,7 +13,6 @@
  * effect as the edge of the front element overlaps the back element
  */
 
-
 /* Wrapper, 2x the height of the children */
 .scroll-hero-wrapper {
   position: relative;
@@ -83,7 +82,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 /* ---------------------------------------------------------------------- */
 /* Presentation purposes only, not related to the effect */

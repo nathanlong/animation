@@ -16,7 +16,7 @@
 			<h1>Mixed Techniques</h1>
 			<p class="flow-0">Effects that don't fall squarely into one category.</p>
 			<hr>
-			{% set postslist = collections['mixed'] %}
+			{% set postslist = collections['mixed'] | sort() %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

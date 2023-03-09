@@ -1,7 +1,7 @@
 :root {
   --color-text: #fff;
   --color-bg: #111111;
-  --font-factor: 0.059; 
+  --font-factor: 0.059;
   --font-line: 0.745;
   --font-size: 25vw;
   --color-purple: #cdb4db;
@@ -46,7 +46,6 @@
 .color-e {
   background-color: var(--color-e);
 }
-
 
 /* Grid Base */
 
@@ -142,7 +141,7 @@
 .swap .image-2a {
   background-color: var(--color-b);
   grid-column: 1/5;
-  grid-row:1/7;
+  grid-row: 1/7;
 }
 
 .image-2b {

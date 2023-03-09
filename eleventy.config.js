@@ -24,20 +24,15 @@ module.exports = function (eleventyConfig) {
 		ghostMode: false,
 	});
 
-	function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-	}
+  // Filters
+	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
+		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+  });
 
-	eleventyConfig.addFilter("filterTagList", filterTagList)
-
-	// Create an array of all tags
-	eleventyConfig.addCollection("tagList", function(collection) {
-		let tagSet = new Set();
-		collection.getAll().forEach(item => {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
-		});
-
-		return filterTagList([...tagSet]);
+	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
 	});
 
 	return {
@@ -50,6 +45,14 @@ module.exports = function (eleventyConfig) {
 
 		// Pre-process *.html files with: (default: `liquid`)
 		htmlTemplateEngine: "njk",
+
+		// These are all optional (defaults are shown):
+		dir: {
+			input: ".",
+			includes: "_includes",
+			data: "_data",
+			output: "_site",
+		},
 
 		// -----------------------------------------------------------------
 		// If your site deploys to a subdirectory, change `pathPrefix`.
@@ -65,12 +68,5 @@ module.exports = function (eleventyConfig) {
 		pathPrefix: "/",
 		// -----------------------------------------------------------------
 
-		// These are all optional (defaults are shown):
-		dir: {
-			input: ".",
-			includes: "_includes",
-			data: "_data",
-			output: "_site",
-		},
 	};
 };

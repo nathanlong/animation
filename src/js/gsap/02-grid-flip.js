@@ -20,50 +20,50 @@ gsap.registerPlugin(Flip, ScrollTrigger)
 // also allows using it as a standalone.
 
 export class GridFlip {
-	constructor(el) {
-		this.el = el
-		this.setVars()
-		this.setScrollTrigger()
-	}
+  constructor(el) {
+    this.el = el
+    this.setVars()
+    this.setScrollTrigger()
+  }
 
-	setVars() {
-		this.flipTargets = this.el.querySelectorAll('.grid-el')
-	}
+  setVars() {
+    this.flipTargets = this.el.querySelectorAll('.grid-el')
+  }
 
-	setScrollTrigger() {
-		ScrollTrigger.create({
-			trigger: this.el,
-			start: 'center center', // when the top of the trigger hits the middle of the viewport
-			markers: true, // show the trigger markers, helpful for debugging
-			// fires when entering from normal scroll
-			onEnter: () => this.createFlip(true),
-			// fires when backing up through
-			onLeaveBack: () => this.createFlip(false)
-		})
-	}
+  setScrollTrigger() {
+    ScrollTrigger.create({
+      trigger: this.el,
+      start: 'center center', // when the top of the trigger hits the middle of the viewport
+      markers: true, // show the trigger markers, helpful for debugging
+      // fires when entering from normal scroll
+      onEnter: () => this.createFlip(true),
+      // fires when backing up through
+      onLeaveBack: () => this.createFlip(false),
+    })
+  }
 
-	createFlip(add) {
-		// record current state
-		const state = Flip.getState(this.flipTargets)
-		// alter the object: either add or remove a class, triggering css rules
-		add ? this.el.classList.add('swap') : this.el.classList.remove('swap')
-		// create Flip to tween from previous state
-		Flip.from(state, {
-			duration: 1.2,
-			ease: 'power1.inOut',
-			scale: this.setScale(),
-		})
-	}
+  createFlip(add) {
+    // record current state
+    const state = Flip.getState(this.flipTargets)
+    // alter the object: either add or remove a class, triggering css rules
+    add ? this.el.classList.add('swap') : this.el.classList.remove('swap')
+    // create Flip to tween from previous state
+    Flip.from(state, {
+      duration: 1.2,
+      ease: 'power1.inOut',
+      scale: this.setScale(),
+    })
+  }
 
-	// scaling trasitions don't reflow, so they distort images set to fill
-	// make this an opt-in per element with the data variable:
-	// 'data-grid-scale="true"'
-	setScale() {
-		return this.el.dataset.gridScale || false
-	}
+  // scaling trasitions don't reflow, so they distort images set to fill
+  // make this an opt-in per element with the data variable:
+  // 'data-grid-scale="true"'
+  setScale() {
+    return this.el.dataset.gridScale || false
+  }
 }
 
 // grab instances and init
 document.querySelectorAll('[data-module="gridFlip"]').forEach((el) => {
-	new GridFlip(el)
+  new GridFlip(el)
 })
