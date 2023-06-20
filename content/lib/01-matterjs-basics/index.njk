@@ -1,0 +1,28 @@
+---
+title: Matter.js Basics
+description: Physics engine
+date: 2023-01-01
+number: 01
+identifier: matterjs-basics
+tags: lib
+---
+<!DOCTYPE html>
+<html class="" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% include "shared-css.njk" %}
+	</head>
+
+	<body>
+		<main>
+			{% include "breadcrumbs.njk" %}
+      <div class="basics" data-module="basics"></div>
+		</main>
+
+    <script src="{{ '/public/vendor/matter-0.18.0.min.js' | url }}"></script>
+    {% include "shared-js.njk" %}
+	</body>
+</html>

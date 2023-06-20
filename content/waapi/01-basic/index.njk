@@ -1,0 +1,44 @@
+---
+title: WAAPI Basics
+description: Basic playrate manipulation
+date: 2023-01-01
+number: 01
+identifier: basic
+tags: waapi
+---
+<!DOCTYPE html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% include "shared-css.njk" %}
+	</head>
+
+	<body>
+		<main id="content">
+			{% include "breadcrumbs.njk" %}
+			<div class="container m-content flow">
+				<h1><code class="text-gray">01:</code> Basics</h1>
+
+				<p>Buttons to control the play/pause of the animation as well as the playback speed.</p>
+
+				<div id="animation-target"></div>
+
+				<div class="animation-controls">
+					<button id="spin">Spin Me Right Round (Play)</button>
+					<button id="speed-up">Speed Up</button>
+					<button id="reset">Slow Down</button>
+					<button id="stop">Stop</button>
+				</div>
+				<div class="animation-controls">
+					<button id="mouse-bind">Bind Speed and Scale to Mouse Position</button>
+					<small>(You'll have to reload after using this...)</small>
+				</div>
+			</div>
+		</main>
+
+    {% include "shared-js.njk" %}
+	</body>
+</html>

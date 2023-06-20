@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8" />
+		<title>Various Libraries - Animation</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ '/public/css/common.css' | url }}">
+	</head>
+
+	<body>
+		<code class="breadcrumbs">
+			<a href="{{ '/' | url }}">&larr; Animation</a>
+		</code>
+		<div class="container flow m-content">
+			<h1>Various Libraries</h1>
+			<p class="flow-0">Smattering of different libraries to enable animation and effects</p>
+			<hr>
+			{% set postslist = collections['lib'] %}
+			{% include "postlist.njk" %}
+		</div>
+	</body>
+</html>

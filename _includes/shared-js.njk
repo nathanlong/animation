@@ -1,2 +1,2 @@
-{%- set jsUrl = ['/src/js/', tags[0]|lower, '/', identifier, '.js'] | join %}
+{%- set jsUrl = ['/', tags[0]|lower, '/', (number|string).padStart(2, '0'), '-', identifier, '/scripts.js'] | join %}
 <script type="module" src="{{ jsUrl | url }}"></script>

@@ -20,6 +20,11 @@ e_warning() {
   printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
 }
 
+# Question prompts
+e_question() {
+  printf "$(tput setaf 2)? %s$(tput sgr0)\n" "$@"
+}
+
 # Ask for confirmation before proceeding
 seek_confirmation() {
   printf "\n"

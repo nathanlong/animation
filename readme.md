@@ -16,3 +16,5 @@ setup](https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-gith
   information
 - `npm run deploy` - Runs the clean script, then generates a timestamp commit
   for deployment to the `gh-pages` branch
+- `npm run new` - Runs an interactive prompt for creating a new entry and
+  auto-populating some YAML data

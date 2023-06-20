@@ -1,8 +1,8 @@
 <code class="breadcrumbs">
 	<a href="{{ '/' | url }}">&larr; Animation</a> / <a href="{{ '../ '}}" class="">{{tags[0]|upper}}</a>
 </code>
-{%- set cssSource %}https://github.com/nathanlong/animation/blob/main/src/css/{{tags[0]|lower}}/{{ identifier }}.css{% endset -%}
-{%- set jsSource %}https://github.com/nathanlong/animation/blob/main/src/js/{{tags[0]|lower}}/{{ identifier }}.js{% endset -%}
+{%- set cssSource %}https://github.com/nathanlong/animation/blob/main/content/{{tags[0]|lower}}/{{ identifier }}/style.css{% endset -%}
+{%- set jsSource %}https://github.com/nathanlong/animation/blob/main/content/{{tags[0]|lower}}/{{ identifier }}/scripts.js{% endset -%}
 <code class="source">
 	<a href="{{cssSource}}">CSS Source</a> | <a href="{{jsSource}}">JS Source</a>
 </code>

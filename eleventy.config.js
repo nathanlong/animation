@@ -1,8 +1,10 @@
 const fs = require("fs");
 
 module.exports = function (eleventyConfig) {
-	// Copy the `img` and `css` folders to the output
-	eleventyConfig.addPassthroughCopy("src");
+	// Copy out public assets and each entry's js and css
+	eleventyConfig.addPassthroughCopy("public");
+  eleventyConfig.addPassthroughCopy("content/**/*.js", "/");
+  eleventyConfig.addPassthroughCopy("content/**/*.css", "/");
 
 	// Override Browsersync defaults (used only with --serve)
 	eleventyConfig.setBrowserSyncConfig({
@@ -48,9 +50,9 @@ module.exports = function (eleventyConfig) {
 
 		// These are all optional (defaults are shown):
 		dir: {
-			input: ".",
-			includes: "_includes",
-			data: "_data",
+			input: "content",
+			includes: "../_includes",
+			data: "../_data",
 			output: "_site",
 		},
 
