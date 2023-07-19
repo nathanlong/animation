@@ -1,0 +1,27 @@
+---
+title: Canvas Starfield
+description: Generate random stars (WIP)
+date: 2023-07-19
+number: 03
+identifier: canvas-starfield
+tags: native
+---
+<!DOCTYPE html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% include "shared-css.njk" %}
+	</head>
+
+	<body>
+    <main id="content">
+      {% include "breadcrumbs.njk" %}
+      <canvas id="stars" data-module="starfield"></canvas>
+    </main>
+
+    {% include "shared-js.njk" %}
+	</body>
+</html>

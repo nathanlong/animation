@@ -21,9 +21,6 @@ export default class replaceme {
   }
 }
 
-// Simplifed version of Viget dynamic modules for demo purposes only
-// DON'T REUSE THIS PATTERN, use the real deal, with HMR and all that...
-// https://www.viget.com/articles/how-does-viget-javascript/
 const dataModules = [...document.querySelectorAll('[data-module="replaceme"]')]
 
 dataModules.forEach((element) => {
