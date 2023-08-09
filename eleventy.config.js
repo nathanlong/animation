@@ -5,6 +5,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("public");
   eleventyConfig.addPassthroughCopy("content/**/*.js", "/");
   eleventyConfig.addPassthroughCopy("content/**/*.css", "/");
+  eleventyConfig.addPassthroughCopy("content/**/*.png", "/");
+  eleventyConfig.addPassthroughCopy("content/**/*.webp", "/");
 
 	// Override Browsersync defaults (used only with --serve)
 	eleventyConfig.setBrowserSyncConfig({

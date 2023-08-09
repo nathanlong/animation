@@ -16,7 +16,7 @@
 			<h1>SVG</h1>
 			<p class="flow-0">Techniques based around Scalable Vector Graphics.</p>
 			<hr>
-			{% set postslist = collections['svg'] %}
+			{% set postslist = collections['svg'] | reverse %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

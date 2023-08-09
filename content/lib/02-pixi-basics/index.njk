@@ -1,0 +1,27 @@
+---
+title: Pixi Basics
+description: Blurry orb crawlers
+date: 2023-08-07
+number: 02
+identifier: pixi-basics
+tags: lib
+---
+<!DOCTYPE html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% include "shared-css.njk" %}
+	</head>
+
+	<body>
+    <main id="content">
+      {% include "breadcrumbs.njk" %}
+      <button id="toggleBlur" data-amount="0">Toggle Orb Blur</button>
+    </main>
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    {% include "shared-js.njk" %}
+	</body>
+</html>

@@ -16,7 +16,7 @@
 			<h1>Various Libraries</h1>
 			<p class="flow-0">Smattering of different libraries to enable animation and effects</p>
 			<hr>
-			{% set postslist = collections['lib'] %}
+			{% set postslist = collections['lib'] | reverse %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

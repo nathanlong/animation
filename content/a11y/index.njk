@@ -16,7 +16,7 @@
 			<h1>Accessibility (a11y)</h1>
 			<p class="flow-0">Techniques based around animation accessibility standards.</p>
 			<hr>
-			{% set postslist = collections['a11y'] %}
+			{% set postslist = collections['a11y'] | reverse %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

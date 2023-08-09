@@ -16,7 +16,7 @@
 			<h1>CSS Animations</h1>
 			<p class="flow-0">Techniques based around CSS animations</p>
 			<hr>
-			{% set postslist = collections['css'] %}
+			{% set postslist = collections['css'] | reverse %}
 			{% include "postlist.njk" %}
 		</div>
 	</body>

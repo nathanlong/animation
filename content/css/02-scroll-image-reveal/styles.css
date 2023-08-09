@@ -1,0 +1,40 @@
+:root {
+  --sample-var: teal;
+}
+
+.container {
+  max-width: 33em;
+  margin: 4em auto;
+}
+
+.container > * + * {
+  margin-block-start: 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+@keyframes reveal {
+	from {
+		opacity: 0;
+		clip-path: inset(45% 50% 45% 60%);
+	}
+	to {
+		opacity: 1;
+		clip-path: inset(0% 0% 0% 0%);
+	}
+}
+
+.revealing-image {
+	/* Create View Timeline */
+	view-timeline-name: --revealing-image;
+	view-timeline-axis: block;
+
+	/* Attach animation, linked to the  View Timeline */
+	animation: ease-out reveal both;
+	animation-timeline: --revealing-image;
+
+	/* Tweak range when effect should run*/
+	animation-range: entry 25% cover 50%;
+}
