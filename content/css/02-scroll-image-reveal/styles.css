@@ -176,7 +176,17 @@ html {
 
 .phone-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media all and (min-width: 576px) {
+  .phone-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 /* we set up a base element that will allow 3d transitions */
